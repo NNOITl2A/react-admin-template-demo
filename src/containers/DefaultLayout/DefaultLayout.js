@@ -14,6 +14,7 @@ import {
   AppSidebarMinimizer,
   AppSidebarNav,
 } from '@coreui/react';
+
 // sidebar nav config
 import navigation from '../../_nav';
 // routes config
@@ -29,6 +30,7 @@ class DefaultLayout extends Component {
         <AppHeader fixed>
           <DefaultHeader />
         </AppHeader>
+
         <div className="app-body">
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
@@ -37,9 +39,11 @@ class DefaultLayout extends Component {
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
+
           <main className="main">
             <AppBreadcrumb appRoutes={routes}/>
             <Container fluid>
+
               <Switch>
                 {routes.map((route, idx) => {
                     return route.component ? (<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
@@ -49,12 +53,15 @@ class DefaultLayout extends Component {
                   },
                 )}
                 <Redirect from="/" to="/dashboard" />
+
               </Switch>
             </Container>
           </main>
+
           <AppAside fixed hidden>
             <DefaultAside />
           </AppAside>
+          
         </div>
         <AppFooter>
           <DefaultFooter />
